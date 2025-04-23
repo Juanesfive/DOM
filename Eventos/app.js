@@ -12,7 +12,7 @@ const contraseña = document.querySelector('[name="contraseña"]')
 
 const validar = (event) =>{
     event.preventDefault();
-    if (nombre.value !== "") {
+    if (nombre.value === "") {
         alert("llene el campo nombre");
         nombre.focus();
     }
