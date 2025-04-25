@@ -170,3 +170,7 @@ button:hover {
   background: var(--heavyMetal);
   color: var(--starship);
 }
+
+.error {
+  text-align: center;
+}
