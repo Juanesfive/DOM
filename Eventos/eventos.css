@@ -174,3 +174,32 @@ button:hover {
 .error {
   text-align: center;
 }
+
+select {
+  display: block;
+  width: 90%;
+  padding: calc(var(--padding) + 4px);
+  margin: var(--margin) auto;
+  border: solid 1px var(--heavyMetal);
+  border-radius: 4px;
+  outline: none;
+  font-size: 1rem;
+  color: var(--sycamore);
+  background-color: white;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input,
+select,
+textarea {
+  color: #000;
+}
+
+

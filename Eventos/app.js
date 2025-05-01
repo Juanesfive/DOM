@@ -10,134 +10,114 @@ const usuario = document.querySelector('[name="usuario"]');
 const contraseña = document.querySelector('[name="contraseña"]');
 const politicas = document.querySelector("#politicas");
 const boton = document.querySelector("#btn_validar");
-
-// btn.addEventListener('click', () => {const nombre = document.querySelector('[name="nombre"]')
-//     alert("hola");
-// })
+const ciudad = document.querySelector("select");
 
 // Validación al enviar formulario
 const validar = (event) => {
   event.preventDefault();
+  let hayErrores = false;
 
+  // Validar nombre
   if (nombre.value.trim() === "") {
-    if (nombre.nextElementSibling) {
-      nombre.nextElementSibling.remove();
-    }
-
-    alert("Llene el campo nombre");
+    if (nombre.nextElementSibling) nombre.nextElementSibling.remove();
     nombre.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     nombre.insertAdjacentElement("afterend", mensaje);
-    nombre.focus();
-
-    return;
-  }
-
-  if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre.value)) {
+    hayErrores = true;
+  } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(nombre.value)) {
     alert("El campo nombre solo debe contener letras");
-    nombre.focus();
-    if (event.target.value.lenght >= 10) {
-      event.preventDefault();
-    }
-    return;
+    nombre.style.border = "3px solid red";
+    hayErrores = true;
   }
 
+  // Validar apellido
   if (apellido.value.trim() === "") {
-    if (apellido.nextElementSibling) {
-      apellido.nextElementSibling.remove();
-    }
-    alert("Llene el campo apellido");
-    apellido.focus();
+    if (apellido.nextElementSibling) apellido.nextElementSibling.remove();
     apellido.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     apellido.insertAdjacentElement("afterend", mensaje);
-    return;
-  }
-
-  if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(apellido.value)) {
+    hayErrores = true;
+  } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(apellido.value)) {
     alert("El campo apellido solo debe contener letras");
-    apellido.focus();
-    return;
+    apellido.style.border = "3px solid red";
+    hayErrores = true;
   }
 
+  // Validar teléfono
   if (telefono.value.trim() === "") {
-    if (telefono.nextElementSibling) {
-      telefono.nextElementSibling.remove();
-    }
-    alert("Llene el campo teléfono");
-    telefono.focus();
+    if (telefono.nextElementSibling) telefono.nextElementSibling.remove();
     telefono.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     telefono.insertAdjacentElement("afterend", mensaje);
-
-    return;
-  }
-
-  if (!/^[0-9]+$/.test(telefono.value)) {
+    hayErrores = true;
+  } else if (!/^[0-9]+$/.test(telefono.value)) {
     alert("El campo teléfono solo debe contener números");
-    telefono.focus();
-    return;
+    telefono.style.border = "3px solid red";
+    hayErrores = true;
   }
 
+  // Validar ciudad
+  if (ciudad.value === "Seleccione") {
+    if (ciudad.nextElementSibling) ciudad.nextElementSibling.remove();
+    ciudad.style.border = "3px solid red";
+    const mensaje = document.createElement("span");
+    mensaje.classList.add("error-message");
+    mensaje.textContent = "Debe seleccionar una ciudad";
+    ciudad.insertAdjacentElement("afterend", mensaje);
+    hayErrores = true;
+  }
+
+  // Validar documento
   if (documento.value.trim() === "") {
-    if (documento.nextElementSibling) {
-      documento.nextElementSibling.remove();
-    }
-    alert("Llene el campo documento");
-    documento.focus();
+    if (documento.nextElementSibling) documento.nextElementSibling.remove();
     documento.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     documento.insertAdjacentElement("afterend", mensaje);
-    return;
-  }
-
-  if (!/^[0-9]+$/.test(documento.value)) {
+    hayErrores = true;
+  } else if (!/^[0-9]+$/.test(documento.value)) {
     alert("El campo documento solo debe contener números");
-    documento.focus();
-    return;
+    documento.style.border = "3px solid red";
+    hayErrores = true;
   }
 
+  // Validar usuario
   if (usuario.value.trim() === "") {
-    if (usuario.nextElementSibling) {
-      usuario.nextElementSibling.remove();
-    }
-    alert("Llene el campo usuario");
-    usuario.focus();
+    if (usuario.nextElementSibling) usuario.nextElementSibling.remove();
     usuario.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     usuario.insertAdjacentElement("afterend", mensaje);
-    return;
+    hayErrores = true;
   }
+
+  // Validar contraseña
   if (contraseña.value.trim() === "") {
-    if (contraseña.nextElementSibling) {
-      contraseña.nextElementSibling.remove();
-    }
-    alert("Llene el campo contraseña");
-    contraseña.focus();
+    if (contraseña.nextElementSibling) contraseña.nextElementSibling.remove();
     contraseña.style.border = "3px solid red";
     const mensaje = document.createElement("span");
-    mensaje.classList.add("error");
+    mensaje.classList.add("error-message");
     mensaje.textContent = "EL campo es obligatorio";
     contraseña.insertAdjacentElement("afterend", mensaje);
-    return;
+    hayErrores = true;
   }
 
-  // Si todo llega a hacer correcto el formulario se enviara.
-  alert("Formulario enviado correctamente");
+
+  if (!hayErrores) {
+    alert("Formulario enviado correctamente");
+    formulario.reset();
+  }
 };
 
-// Aqui estoy Validando en tiempo real que no permita que se ingresa algun numero donde
-// no debe ir por ejemplo en nombre
+// Validaciones en tiempo real
 nombre.addEventListener("keydown", (caracter) => {
   const tecla = caracter.key;
   if (
@@ -176,20 +156,22 @@ documento.addEventListener("keydown", (caracter) => {
 
 const limpiar = (event) => {
   if (event.target.value !== "") {
-    event.target.classList.remove("error");
-    if (nombre.nextElementSibling) {
-      nombre.nextElementSibling.remove();
+    event.target.style.border = "1px solid var(--heavyMetal)";
+    const errorMsg = event.target.nextElementSibling;
+    if (errorMsg && errorMsg.classList.contains("error-message")) {
+      errorMsg.remove();
     }
   }
 };
 
-const acepta = (event) => {
+const acepta = () => {
   if (!politicas.checked) {
-    boton.setAttribute("disable", "");
+    boton.setAttribute("disabled", "");
   } else {
-    boton.removeAttribute("diseble");
+    boton.removeAttribute("disabled");
   }
 };
+
 
 addEventListener("DOMContentLoaded", acepta);
 
@@ -199,7 +181,9 @@ formulario.addEventListener("submit", validar);
 
 nombre.addEventListener("blur", limpiar);
 apellido.addEventListener("blur", limpiar);
-// telefono.addEventListener("blur", limpiar);
-// documento.addEventListener("blur", limpiar);
-// usuario.addEventListener("blur", limpiar);
-// contraseña.addEventListener("blur", limpiar);
+telefono.addEventListener("blur", limpiar);
+documento.addEventListener("blur", limpiar);
+usuario.addEventListener("blur", limpiar);
+contraseña.addEventListener("blur", limpiar);
+ciudad.addEventListener("change", limpiar);
+
