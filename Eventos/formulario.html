@@ -18,50 +18,95 @@
           <div class="card">
             <h2 class="center">Ingrese su datos de usuario</h2>
             <form>
-              <div class="error">
+              <div class="form_control">
                 <input type="text" name="nombre" placeholder="Nombre" />
               </div>
-              <div class="error">
+              <div class="form_control">
                 <input type="text" name="apellido" placeholder="Apellido" />
               </div>
-              <div class="error">
+              <div class="form_control">
                 <input type="tel" name="telefono" placeholder="Telefono" />
               </div>
-              <div class="error">
-                <select>
-                  <option>Seleccione</option>
+              <div class="form_control">
+                <select class="seleccion__ciudad">
+                  <option class="oculto">Seleccione</option>
                   <option value="1">Bucaramanga</option>
                   <option value="2">Giron</option>
                   <option value="3">Pidecuesta</option>
                   <option value="4">floridablanca</option>
                 </select>
               </div>
-              <div class="error">
+              <div class="form_control">
                 <input type="number" name="documento" placeholder="Documento" />
               </div>
-              <div class="error">
+              <div class="form_control">
                 <input type="text" name="usuario" placeholder="Usuario" />
               </div>
-              <div class="error">
+              <div class="form_control">
                 <input
                   type="password"
                   name="contraseña"
                   placeholder="Contraseña"
                 />
               </div>
-              <div class="error">
-                <input type="checkbox"  id="politicas" />
-                <label for="politicas">politicas</label>
+
+              <div class="form_control form_checkbox">
+                <div class="lenguajes">
+                  <input
+                    type="radio"
+                    id="Genero__Hombre"
+                    value="Hombre"
+                    required
+                  />
+                  <label for="Hombre">Hombre</label>
+
+                  <input
+                    type="radio"
+                    name="Genero__mujer"
+                    id="Mujer"
+                    required
+                  />
+                  <label for="Mujer">Mujer</label>
+                </div>
               </div>
 
-              <button type="submit" name="boton" id="btn_validar" disabled>Validar</button>
+              <div class="form_control form_checkbox">
+                <div class="lenguajes">
+                  <input type="checkbox" name="lenguajes" id="HTML" />
+                  <label for="lenguajes">HTML</label>
+                </div>
 
+                <div class="lenguajes">
+                  <input type="checkbox" name="lenguajes" id="CSS" />
+                  <label for="lenguajes">CSS</label>
+                </div>
+
+                <div class="lenguajes">
+                  <input type="checkbox" name="lenguajes" id="Js" />
+                  <label for="lenguajes">JavaScript</label>
+                </div>
+                <div class="lenguajes">
+                  <input type="checkbox" name="lenguajes" id="Python" />
+                  <label for="lenguajes">Python</label>
+                </div>
+              </div>
+              <div class="form_control form_checkbox">
+                <div class="lenguajes">
+                  <input type="checkbox" id="politicas" value="politicas" />
+                  <label for="politicas"
+                    >politicas de tratamiento de datos</label
+                  >
+                </div>
+              </div>
+
+              <button type="submit" name="boton" id="btn_validar" disabled>
+                <label for="btn_validar">Validar</label>
+              </button>
             </form>
           </div>
         </div>
       </section>
     </main>
-    
-    <script type="module" src="app.js"></script>
+    <script type="module" src="../Eventos/app.js"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+
 import { esvalido } from "./modulo.js";
 
 // let btn = document.querySelector('#btn_validar');
@@ -177,7 +178,8 @@ addEventListener("DOMContentLoaded", acepta);
 
 politicas.addEventListener("change", acepta);
 
-formulario.addEventListener("submit", validar);
+// formulario.addEventListener("submit", validar);
+formulario.addEventListener("submit", esvalido)
 
 nombre.addEventListener("blur", limpiar);
 apellido.addEventListener("blur", limpiar);
